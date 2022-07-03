@@ -6,11 +6,11 @@
 /*   By: ljahn <ljahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:04:31 by ljahn             #+#    #+#             */
-/*   Updated: 2022/06/22 09:04:32 by ljahn            ###   ########.fr       */
+/*   Updated: 2022/07/03 15:45:47 by ljahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "costume.h"
+#include "../includes/costume.h"
 
 int	ft_close(void)
 {

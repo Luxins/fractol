@@ -6,11 +6,11 @@
 /*   By: ljahn <ljahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:04:02 by ljahn             #+#    #+#             */
-/*   Updated: 2022/06/22 09:04:03 by ljahn            ###   ########.fr       */
+/*   Updated: 2022/07/03 15:35:56 by ljahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "costume.h"
+#include "../includes/costume.h"
 
 unsigned int	create_trgb(unsigned char r, unsigned char g, unsigned char b)
 {

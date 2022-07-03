@@ -6,11 +6,11 @@
 /*   By: ljahn <ljahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:04:39 by ljahn             #+#    #+#             */
-/*   Updated: 2022/06/22 09:04:40 by ljahn            ###   ########.fr       */
+/*   Updated: 2022/07/03 15:45:54 by ljahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "costume.h"
+#include "../includes/costume.h"
 
 t_point	add_comp(t_point a, t_point b)
 {

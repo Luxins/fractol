@@ -6,11 +6,11 @@
 /*   By: ljahn <ljahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:04:53 by ljahn             #+#    #+#             */
-/*   Updated: 2022/06/22 10:32:17 by ljahn            ###   ########.fr       */
+/*   Updated: 2022/07/03 15:46:05 by ljahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "costume.h"
+#include "../includes/costume.h"
 
 void	error_msg(char *desc)
 {

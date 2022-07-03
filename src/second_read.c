@@ -6,11 +6,11 @@
 /*   By: ljahn <ljahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:04:58 by ljahn             #+#    #+#             */
-/*   Updated: 2022/06/22 09:04:59 by ljahn            ###   ########.fr       */
+/*   Updated: 2022/07/03 15:46:10 by ljahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "costume.h"
+#include "../includes/costume.h"
 
 /**
  * @brief Gets the color value of a pixel

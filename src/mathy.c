@@ -6,11 +6,11 @@
 /*   By: ljahn <ljahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:04:45 by ljahn             #+#    #+#             */
-/*   Updated: 2022/06/22 09:04:46 by ljahn            ###   ########.fr       */
+/*   Updated: 2022/07/03 15:45:59 by ljahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "costume.h"
+#include "../includes/costume.h"
 
 int	fact(int n)
 {
