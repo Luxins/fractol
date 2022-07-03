@@ -6,7 +6,7 @@
 /*   By: ljahn <ljahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:04:02 by ljahn             #+#    #+#             */
-/*   Updated: 2022/07/03 15:35:56 by ljahn            ###   ########.fr       */
+/*   Updated: 2022/07/03 16:30:29 by ljahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,11 @@ unsigned int	bernstein(int iterations, int max_iterations, t_vars *vars)
 	* ft_exp(negative, vars->bernstein.b_n - vars->bernstein.b_v) \
 	* vars->bernstein.b_end;
 	return (create_trgb(r, g, b));
+}
+
+unsigned int opt(int iterations, int max_iterations)
+{
+	if (iterations / max_iterations > 0.5)
+		return(0x00FF0000);
+	return(0x0000FF00);
 }

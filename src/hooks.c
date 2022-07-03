@@ -6,7 +6,7 @@
 /*   By: ljahn <ljahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:04:23 by ljahn             #+#    #+#             */
-/*   Updated: 2022/07/03 15:36:05 by ljahn            ###   ########.fr       */
+/*   Updated: 2022/07/03 16:02:25 by ljahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,22 +62,10 @@ int	key_hooks(int keycode, t_vars *vars)
 	return (0);
 }
 
-int	mouse_hook(int mousecode, int x, int y, t_vars *vars)
+static void	scaling(t_vars *vars, t_point con)
 {
-	t_point		con;
 	t_point		inv;
 
-	con = pixel_to_complex(x, y, vars);
-	if (mousecode == ON_MOUSEUP)
-	{
-		vars->zoom = 0.9;
-		vars->flop *= -1;
-	}
-	if (mousecode == ON_MOUSEDOWN)
-	{
-		vars->zoom = 1.1;
-		vars->flop *= -1;
-	}
 	inv = assign_comp(vars->borders.x_left + vars->borders.x_right \
 	- con.r, vars->borders.y_up + vars->borders.y_down - con.i);
 	vars->borders.x_left = con.r + (vars->borders.x_left - con.r) * vars->zoom;
@@ -85,6 +73,31 @@ int	mouse_hook(int mousecode, int x, int y, t_vars *vars)
 	* vars->zoom;
 	vars->borders.y_up = con.i + (vars->borders.y_up - con.i) * vars->zoom;
 	vars->borders.y_down = con.i + (vars->borders.y_down - con.i) * vars->zoom;
+}
+
+int	mouse_hook(int mousecode, int x, int y, t_vars *vars)
+{
+	t_point		con;
+	static int	count = 0;
+
+	con = pixel_to_complex(x, y, vars);
+	vars->zoom = 1;
+	if (mousecode == ON_MOUSEUP)
+	{
+		vars->zoom = 0.9;
+		vars->flop *= -1;
+		count--;
+	}
+	if (count < 20)
+	{
+		if (mousecode == ON_MOUSEDOWN)
+		{
+			vars->zoom = 1.1;
+			vars->flop *= -1;
+			count++;
+		}
+	}
+	scaling(vars, con);
 	iter(vars);
 	return (0);
 }

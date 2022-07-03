@@ -6,7 +6,7 @@
 /*   By: ljahn <ljahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:04:17 by ljahn             #+#    #+#             */
-/*   Updated: 2022/07/03 15:36:00 by ljahn            ###   ########.fr       */
+/*   Updated: 2022/07/03 16:26:49 by ljahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	mandelbrot(t_point comp, t_vars *vars)
 	cnt = 0;
 	init_comp(&run);
 	vars->iterations = LIMIT;
-	while (run.r < 2 && run.i < 2)
+	while ((run.r < 2 && run.i < 2) && (run.r > -2 && run.i > -2))
 	{
 		run = add_comp(sqr_comp(run), comp);
 		if (cnt > LIMIT)
@@ -34,6 +34,8 @@ void	mandelbrot(t_point comp, t_vars *vars)
 		cnt++;
 	}
 	vars->iterations = cnt;
+	if (vars->iterations == 1)
+		vars->iterations = 2;
 	return ;
 }
 
@@ -46,7 +48,7 @@ void	julia(t_point comp, t_vars *vars)
 	constant.r = vars->julia_r;
 	constant.i = vars->julia_i;
 	vars->iterations = LIMIT;
-	while (comp.r < 2 && comp.i < 2)
+	while ((comp.r < 2 && comp.i < 2) && (comp.r > -2 && comp.i > -2))
 	{
 		comp = add_comp(sqr_comp(comp), constant);
 		if (cnt > LIMIT)
@@ -54,5 +56,7 @@ void	julia(t_point comp, t_vars *vars)
 		cnt++;
 	}
 	vars->iterations = cnt;
+	if (vars->iterations == 0)
+		vars->iterations = 1;
 	return ;
 }

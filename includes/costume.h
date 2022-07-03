@@ -6,7 +6,7 @@
 /*   By: ljahn <ljahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:04:07 by ljahn             #+#    #+#             */
-/*   Updated: 2022/06/28 19:24:31 by ljahn            ###   ########.fr       */
+/*   Updated: 2022/07/03 16:30:52 by ljahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,4 +153,6 @@ void			assign_julia_trees(t_vars *vars);
 
 //			colors.c
 unsigned int	bernstein(int iterations, int max_iterations, t_vars *vars);
+unsigned int	opt(int iterations, int max_iterations);
+
 #endif

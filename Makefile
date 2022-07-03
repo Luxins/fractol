@@ -1,4 +1,4 @@
-ADDITIONALS = src/mathy.c src/iter_and_ignore.c src/colors.c src/hooks.c src/parameters.c src/second_read.c src/fractals.c src/mathy_complex.c src/assigning.c
+ADDITIONALS = src/mathy.c src/iter.c src/colors.c src/hooks.c src/parameters.c src/second_read.c src/fractals.c src/mathy_complex.c src/assigning.c
 
 MAIN = src/main.c
 
