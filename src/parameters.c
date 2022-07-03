@@ -6,7 +6,7 @@
 /*   By: ljahn <ljahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:04:53 by ljahn             #+#    #+#             */
-/*   Updated: 2022/07/03 15:46:05 by ljahn            ###   ########.fr       */
+/*   Updated: 2022/07/03 16:44:05 by ljahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	error_msg(char *desc)
 
 void	check_color_schemes(char *argv[], t_vars *vars)
 {
+	if (!ft_strcmp(argv[1], "Julia") && !argv[3])
+		error_msg("Error: No color scheme provided\n");
 	if (!ft_strcmp(argv[1], "Julia") && !ft_strcmp(argv[2], "circle") \
 	&& !ft_strcmp(argv[3], "rust"))
 		error_msg("Error: Rust is not available for Julia circle\n");
