@@ -6,7 +6,7 @@
 /*   By: ljahn <ljahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:04:27 by ljahn             #+#    #+#             */
-/*   Updated: 2022/07/03 16:36:56 by ljahn            ###   ########.fr       */
+/*   Updated: 2022/07/03 16:52:03 by ljahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,26 @@ void	init_vars(t_vars *vars)
 	&vars->img2.bits_per_pixel, &vars->img2.size_line, &vars->img2.endian);
 }
 
+void	draw_grid(t_vars *vars)
+{
+	paint_pixel(vars, vars->x, vars->y, 0x00000000);
+	if (pixel_filter(vars->x, vars->y))
+	{
+		vars->math_filter(pixel_to_complex(vars->x, \
+		vars->y, vars), vars);
+		if (vars->opt == -1)
+		{
+			paint_pixel(vars, vars->x, vars->y, \
+			bernstein(vars->iterations, LIMIT, vars));
+		}
+		else
+		{
+			paint_pixel(vars, vars->x, vars->y, \
+			opt(vars->iterations, LIMIT));
+		}
+	}
+}
+
 /**
  * @brief iterates through every pixel and paints 
  * - passes image to second read - puts right image to window
@@ -109,22 +129,7 @@ void	iter(t_vars *vars)
 	{
 		while (vars->x < X)
 		{
-			paint_pixel(vars, vars->x, vars->y, 0x00000000);
-			if (pixel_filter(vars->x, vars->y))
-			{
-				vars->math_filter(pixel_to_complex(vars->x, \
-				vars->y, vars), vars);
-				if (vars->opt == -1)
-				{
-					paint_pixel(vars, vars->x, vars->y, \
-					bernstein(vars->iterations, LIMIT, vars));
-				}
-				else
-				{
-					paint_pixel(vars, vars->x, vars->y, \
-					opt(vars->iterations, LIMIT));
-				}
-			}
+			draw_grid(vars);
 			vars->x++;
 		}
 		vars->x = 0;
