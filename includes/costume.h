@@ -6,7 +6,7 @@
 /*   By: ljahn <ljahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:04:07 by ljahn             #+#    #+#             */
-/*   Updated: 2022/07/03 16:30:52 by ljahn            ###   ########.fr       */
+/*   Updated: 2022/07/03 16:34:54 by ljahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct s_vars
 	t_bernstein		bernstein;
 	int				x;
 	int				y;
+	int				opt;
 }	t_vars;
 
 enum
@@ -104,7 +105,8 @@ enum
 	ARROW_RIGHT = 124,
 	ARROW_DOWN = 125,
 	ARROW_UP = 126,
-	ON_DESTROY = 17
+	ON_DESTROY = 17,
+	ON_O = 31
 };
 
 //			mathy_complex.c

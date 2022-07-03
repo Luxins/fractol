@@ -6,7 +6,7 @@
 /*   By: ljahn <ljahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:04:23 by ljahn             #+#    #+#             */
-/*   Updated: 2022/07/03 16:02:25 by ljahn            ###   ########.fr       */
+/*   Updated: 2022/07/03 16:35:26 by ljahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int	key_hooks(int keycode, t_vars *vars)
 		vars->julia_i -= 0.1;
 	if (keycode == ESCAPE)
 		exit(0);
+	if (keycode == ON_O)
+		vars->opt *= -1;
 	iter(vars);
 	return (0);
 }

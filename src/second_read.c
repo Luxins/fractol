@@ -6,7 +6,7 @@
 /*   By: ljahn <ljahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:04:58 by ljahn             #+#    #+#             */
-/*   Updated: 2022/07/03 15:46:10 by ljahn            ###   ########.fr       */
+/*   Updated: 2022/07/03 16:39:11 by ljahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,16 @@ void	four(int x, int y, t_vars *vars)
 		{
 			paint_pixel(vars, x + j, y + i, 0x00000000);
 			vars->math_filter(pixel_to_complex(x + j, y + i, vars), vars);
-			paint_pixel(vars, x + j, y + i, bernstein \
-			(vars->iterations, LIMIT, vars));
+			if (vars->opt == -1)
+			{
+				paint_pixel(vars, x + j, y + i, bernstein \
+				(vars->iterations, LIMIT, vars));
+			}
+			if (vars->opt == 1)
+			{
+				paint_pixel(vars, x + j, y + i, opt \
+				(vars->iterations, LIMIT));
+			}
 			j++;
 		}
 		j = 0;
