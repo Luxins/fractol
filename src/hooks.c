@@ -6,7 +6,7 @@
 /*   By: ljahn <ljahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:04:23 by ljahn             #+#    #+#             */
-/*   Updated: 2022/07/03 16:35:26 by ljahn            ###   ########.fr       */
+/*   Updated: 2022/07/03 19:33:02 by ljahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,7 @@ int	key_hooks(int keycode, t_vars *vars)
 
 static void	scaling(t_vars *vars, t_point con)
 {
-	t_point		inv;
-
-	inv = assign_comp(vars->borders.x_left + vars->borders.x_right \
+	assign_comp(vars->borders.x_left + vars->borders.x_right \
 	- con.r, vars->borders.y_up + vars->borders.y_down - con.i);
 	vars->borders.x_left = con.r + (vars->borders.x_left - con.r) * vars->zoom;
 	vars->borders.x_right = con.r + (vars->borders.x_right - con.r) \
