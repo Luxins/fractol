@@ -6,7 +6,7 @@
 /*   By: ljahn <ljahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:04:58 by ljahn             #+#    #+#             */
-/*   Updated: 2022/07/03 16:39:11 by ljahn            ###   ########.fr       */
+/*   Updated: 2022/07/03 17:02:43 by ljahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,33 +56,29 @@ void	filler(int x, int y, t_vars *vars, unsigned int color)
 
 void	four(int x, int y, t_vars *vars)
 {
-	int	i;
-	int	j;
-
-	x++;
-	y++;
-	i = 0;
-	j = 0;
-	while (i < BOX_SIZE - 2)
+	vars->x = 0;
+	vars->y = 0;
+	while (vars->x < BOX_SIZE - 2)
 	{
-		while (j < BOX_SIZE - 2)
+		while (vars->y < BOX_SIZE - 2)
 		{
-			paint_pixel(vars, x + j, y + i, 0x00000000);
-			vars->math_filter(pixel_to_complex(x + j, y + i, vars), vars);
+			paint_pixel(vars, x + vars->y, y + vars->x, 0x00000000);
+			vars->math_filter(pixel_to_complex(x + vars->y, \
+			y + vars->x, vars), vars);
 			if (vars->opt == -1)
 			{
-				paint_pixel(vars, x + j, y + i, bernstein \
+				paint_pixel(vars, x + vars->y, y + vars->x, bernstein \
 				(vars->iterations, LIMIT, vars));
 			}
 			if (vars->opt == 1)
 			{
-				paint_pixel(vars, x + j, y + i, opt \
+				paint_pixel(vars, x + vars->y, y + vars->x, opt \
 				(vars->iterations, LIMIT));
 			}
-			j++;
+			vars->y++;
 		}
-		j = 0;
-		i++;
+		vars->y = 0;
+		vars->x++;
 	}
 }
 
@@ -118,7 +114,7 @@ void	second_read(t_vars *vars)
 			if (check_box(box_x, box_y, vars))
 				filler(box_x, box_y, vars, vars->pxl1);
 			else
-				four(box_x, box_y, vars);
+				four(box_x + 1, box_y + 1, vars);
 			box_y += BOX_SIZE - 1;
 		}
 		box_y = 0;

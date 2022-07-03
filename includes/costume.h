@@ -6,7 +6,7 @@
 /*   By: ljahn <ljahn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:04:07 by ljahn             #+#    #+#             */
-/*   Updated: 2022/07/03 16:34:54 by ljahn            ###   ########.fr       */
+/*   Updated: 2022/07/03 16:59:12 by ljahn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,8 +121,7 @@ int				fact(int n);
 double			ft_exp(double base, unsigned int exponent);
 int				binominal(int choosen, int set);
 
-//			ignore.c
-void			init_vars(t_vars *vars);
+//			iter.c
 void			iter(t_vars *vars);
 void			paint_pixel(t_vars *vars, int x, int y, int color);
 int				pixel_filter(int cur_x, int cur_y);
